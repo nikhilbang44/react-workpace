@@ -63,7 +63,8 @@ class App extends Component {
                  age = { this.state.persons[0].age }/>
         < Person click= { this.switchNameHandler } 
                   name = { this.state.persons[1].name }
-                  age = { this.state.persons[1].age }>My Hobbies: playing chess</Person>
+                  age = { this.state.persons[1].age }
+                  changed={ this.nameChangedHandler }>My Hobbies: playing chess</Person>
         < Person click= { this.switchNameHandler.bind(this, 'Priti') } 
                   name = { this.state.persons[2].name } 
                   age = { this.state.persons[2].age }/>
