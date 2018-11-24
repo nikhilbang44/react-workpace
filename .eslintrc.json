@@ -1,9 +1,0 @@
-{
-    "extends": "airbnb",
-    "plugins": ["react", "jsx-a11y", "important"],
-    "rules": {
-        "react/jsx-filename-extension": 0,
-        "no-use-before-define": 0
-    }
-
-}
