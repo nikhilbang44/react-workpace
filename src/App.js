@@ -71,28 +71,31 @@ class App extends Component {
       cursor: 'pointer'
     };
 
+    let persons = null;
+
+    if ( this.state.showPersons) {
+      persons = (
+        <div>
+          < Person click= { this.switchNameHandler }
+                name = { this.state.persons[0].name }
+                age = { this.state.persons[0].age }/>
+          < Person click= { this.switchNameHandler }
+                  name = { this.state.persons[1].name }
+                  age = { this.state.persons[1].age }
+                  changed={ this.nameChangedHandler }>My Hobbies: playing chess</Person>
+          < Person click= { this.switchNameHandler.bind(this, 'Priti') }
+                  name = { this.state.persons[2].name }
+                  age = { this.state.persons[2].age }/>
+        </div>
+      )
+    }
+
     return (
       <div className="App">
         <h1> Hi, I'm a React APP </h1>
         <p> This is really working! </p>
-        <button style= {style}
-                onClick={this.togglePersonsHandler}> Toggle Person</button>
-
-        {
-          this.state.showPersons ?
-          <div>
-            < Person click= { this.switchNameHandler }
-                  name = { this.state.persons[0].name } 
-                  age = { this.state.persons[0].age }/>
-            < Person click= { this.switchNameHandler } 
-                    name = { this.state.persons[1].name }
-                    age = { this.state.persons[1].age }
-                    changed={ this.nameChangedHandler }>My Hobbies: playing chess</Person>
-            < Person click= { this.switchNameHandler.bind(this, 'Priti') } 
-                    name = { this.state.persons[2].name } 
-                    age = { this.state.persons[2].age }/>
-          </div> : null
-        }
+        <button style= {style} onClick={this.togglePersonsHandler}> Toggle Person</button>
+        { persons }
       </div>
     );
   }
