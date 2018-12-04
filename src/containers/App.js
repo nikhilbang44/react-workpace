@@ -4,27 +4,40 @@ import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
 
 class App extends Component {
-  state = {
-    persons:[
-      {
-        id: '1',
-        name: 'Max',
-        age: 28
-       },
-      {
-        id: '2',
-        name: 'Manu',
-        age: 28
-      },
-      {
-        id: '3',
-        name: 'Step',
-        age: 28
-      }
-    ],
-    otherState: 'some other value',
-    showPersons: false
+
+  constructor (props) {
+    super(props);
+    this.state = {
+      persons: [{
+          id: '1',
+          name: 'Max',
+          age: 28
+        },
+        {
+          id: '2',
+          name: 'Manu',
+          age: 28
+        },
+        {
+          id: '3',
+          name: 'Step',
+          age: 28
+        }
+      ],
+      otherState: 'some other value',
+      showPersons: false
+    }
+    console.log('[App.js] Inside Constuctor', props);
   }
+
+  componentWillMount() {
+    console.log('[App.js] Inside componentWillMount()');
+  }
+
+  componentDidMount() {
+    console.log('[App.js] Inside componentDidMount()');
+  }
+
 
   switchNameHandler = (newName) => {
     this.setState({
@@ -80,7 +93,7 @@ class App extends Component {
 
 
   render() {
-
+    console.log('[App.js] Inside render')
     let persons = null;
     if ( this.state.showPersons) {
       persons = <Persons
