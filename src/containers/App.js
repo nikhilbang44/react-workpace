@@ -92,9 +92,12 @@ componentDidUpdate() {
 
   togglePersonsHandler = () => {
     const doesShow = this.state.showPersons;
-    this.setState({ 
-      showPersons: !doesShow 
-    })
+    this.setState((prevState, props) => {
+      return {
+      showPersons: !doesShow,
+      toggleClicked: prevState.toggleClicked + 1
+     }
+    });
   }
 
   deletePersonHandler = (personIndex) => {
