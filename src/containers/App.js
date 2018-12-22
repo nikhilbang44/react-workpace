@@ -59,6 +59,17 @@ componentDidUpdate() {
   console.log('[update App.js] Inside componentDidUpdate');
 }
 
+static getDerivedStateFromProps(nextProps, prevState) {
+  console.log('[update App.js] Inside getDerivedStateFromProps', nextProps, prevState); 
+  return prevState;
+}
+
+getSnapshotBeforeUpdate() {
+  console.log(
+    "[update App.js] Inside getSnapshotBeforeUpdate"
+  );
+}
+
   switchNameHandler = (newName) => {
     this.setState({
       persons: [
